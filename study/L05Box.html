@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>박스모델</title>
+</head>
+<style>
+
+    .box{
+        display: block;
+        background-color: #FF0000;
+        /*height: auto;    컨텐츠의 높이*/
+        /*width: 100%;     브라우저 너비 기준 100% */
+    }
+    .square{
+
+        /* width heigh 는 컨텐츠의 크기(기본값)
+        box-sizing : content-box; */
+        box-sizing: border-box;
+        width: 200px;
+        height: 200px;
+        /*overflow: visible; 컨텐츠가 밖으로 표시(높이고정시)*/
+        /*overflow: hidden; 컨텐츠 숨김*/
+        overflow: scroll; /* 컨텐츠를 스크롤로 표시 */
+        /*border-width: 10px;*/
+        /*border-color: #0000FF;*/
+        /*border-style: solid;*/
+
+        border:5px #00ff00 dashed;
+        border-width: 5px 7px 9px 11px;
+        border-color: green red orange brown;
+        /*padding-right: 5px;*/
+        /*padding-left: 20px;*/
+        /*padding-top: 30px;*/
+        /*padding-bottom: 70px;
+        아래 처럼 줄여서 사용가능*/
+        /*padding:30px 20px 70px 10px; !*top right bottom left *!*/
+        padding : 20px;
+        margin: 30px auto;
+
+    }
+    
+</style>
+
+
+
+<body>
+    <h1>블럭의 박스 모델을 확인하자</h1>
+    <hr>
+    <div>
+        <div class="box">
+            dd
+            ㅇㄹㄴ
+        </div>
+    </div>
+    <hr>
+
+    <div>
+        <div class="box square">
+            나는 컨텐츠 입니다 나는 컨텐츠 입니다나는 컨텐츠 입니다나는 컨텐츠 입니다
+        </div>
+    </div>
+    <hr>
+
+    <ul>
+        <li>display:block 속성의 요소는 기본 , 너비는 브라우저, 컨텐츠가 높이를 결정</li>
+        <li>html 컨텐츠는 /n 라인개행 을 무시한다</li>
+        <li>block 의 높이를 지정하면 고정크기로 바꾼다. 컨텐츠가 밖으로 나오게 된다(over flow)</li>
+        <li></li>
+        <li></li>
+    </ul>
+    <hr>
+
+    <h2>방향 단축</h2>
+
+    <ul>
+        <li>padding : A; ->모든방향</li>
+        <li>padding : A B; -> 위아래 A , 좌우 B</li>
+        <li>padding : A B C; ->위A 좌우B 아래C</li>
+        <li>padding : A B C D; -></li>
+    </ul>
+
+
+</body>
+
+</body>
+</html>
