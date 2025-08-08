@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>단위</title>
+</head>
+<style>
+    .box{
+        display: inline-block;
+        background-color: #3498db;
+        width: 20%;
+    }
+
+</style>
+
+
+<body>
+<h1>CSS의 단위에 대해 알아 봅시다.</h1>
+<p>cm, m, km, 원, 도씨와 같은 일상적인 단위는 css에서 존재하지 않는다</p>
+<h2>브라우저(css)에서 사용하는 단위들</h2>
+<ul>
+    <li> px,% :
+        <div class="box" style="width: 30%; height: 30%">30%*30% </div>
+        부모요소의 크기를 기준으로 자식의 비유율 정의
+    </li>
+    <li>vw, vh(viewport 브라우저 100~0) : 커졌다 작아졌다[모바일 크기]
+        <div class="box" style="width: 10vw; height: 3vh">10vw*10vh</div>
+    </li>
+    <li>rem (1rem==16px(기본font size)) : 글자크기를 기준으로 크기지정()[모바일크기]
+        <div class="box" style="width: 2rem; height: 2rem">16px*16px</div>
+    </li>
+    <li>
+        em(시작은 16px==1em, 부모요소의 크기를 기준으로 계속 변경됨)
+        부모가1em(16px) 이고 자식이2em이면 부모 16px x2em 해서 32px가 됨
+        <div class="box" style="font-size: 0.5em; width: 10em; height: 10em">
+            <span style="font-size: 2em">10em x 10em</span>
+        </div>
+    </li>
+
+</ul>
+<h2>색에서 사용하는 단위</h2>
+<ul>
+    <li>rgb(0~255, 0~255, 0~255) :
+    <div class="box" style="background: rgb(255,0,0)">
+        rgb(255,0,0)
+    </div>
+    </li>
+
+    <li>
+        rgba(0~255, 0~255, 0~255, 0~1) :
+        <div class="box" style="background: rgb(255,0,0,0.5)">
+            rgb(255,0,0,0.5)
+        </div>
+    </li>
+
+    <li> 16진수 색 #(00~FF == 0~255, 00~FF) :
+    <div class="box" style="background: #3498db">머고</div>
+    </li>
+
+    <li>HSL (색조 Hue, 채도,명도)
+    <div class="box" style="background: hsl(0,50%,80%)">첫번째 </div>
+    </li>
+
+    <li>HSLA [색조 Hue, 채도(0~100),명도(0~100),알파 투명도(0~1)]
+        <div class="box" style="background: hsla(0,10%,10%,0.3)">두번째 </div>
+    </li>
+
+</ul>
+
+<h2>단위 작성 시 주의할점</h2>
+<ul>
+    <li>
+        <div class="box" style="width: 0;"></div>
+        0을 제외하고 단위가 없는 수는 없다
+    </li>
+    <li>
+        <div class="box" style="width: 1000; height: 1000">1000x1000</div>
+        0을 제외하고 단위가 없는 수는 없다
+    </li>
+    <li>
+        <div class="box" style="width: 100px+200px">
+            100px+10px
+        </div>
+        계산으로 값을 대입할 수 없다
+    </li>
+    <li>
+        <div class="box" style="width: calc(300px / 4)">
+            calc(300px/4)
+        </div>
+        계산할때는 calc 사용
+    </li>
+    <li>
+        <div class="box" style="width: calc(300px + 100px)">
+            calc(300px+100px)
+        </div>
+    </li>
+</ul>
+
+
+
+
+
+</body>
+
+</html>
