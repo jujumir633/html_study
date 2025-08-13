@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>의사요소 선택자</title>
+    <style>
+        .before-apple::before{
+            content: "@";
+        }
+        .after-smile::after{
+            content: "#";
+        }
+
+    </style>
+</head>
+
+<body>
+<h1>존재하지 않는 요소를 선택해서 스타일 적용</h1>
+<h2>::before 자식의 맨앞, content 를 꼭 작성해야 생성됨</h2>
+<div class="before-apple">
+    안녕하세요!!
+</div>
+
+<h2>::after 자식의 맨뒤</h2>
+<div class="after-smile">
+    식사 맛있게 하세요
+</div>
+
+<h2>after 예시 float</h2>
+
+<div style="border: 1px solid black;">
+    <div style="float:left">01</div>
+    <div style="float:left">02</div>
+    <div style="float:left">03</div>
+</div>
+<style>
+    .float-container{
+        border: 1px gold;
+        background-color: #579f3d;
+
+    }
+
+    .float-container>div {
+        float: left;
+        width: 5em;
+        height: 5em;
+        background: firebrick;
+        border: 1px solid black;
+    }
+
+    .after-block::after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+</style>
+<hr style="clear: left;">
+<h2>float 박스가 존재하는 것 처럼 부모요소를 속이는 방법</h2>
+<div class="float-container">
+    <div>01</div>
+    <div>02</div>
+    <div>03</div>
+</div>
+
+<hr style="clear: left;">
+
+<div class="float-container after-block">
+    <div>01</div>
+    <div>02</div>
+    <div>03</div>
+</div>
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+
+
+
+</body>
+</html>
