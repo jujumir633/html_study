@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>메뉴바</title>
+
+    <style>
+
+
+      .menu{
+          background-color: #172f5d;
+
+      }
+
+      #home-menu ul.submenu{
+          display: none;
+          position: absolute;
+          background-color: #d0b135;
+          top: 30px;
+          left: 0em;
+          list-style: none;
+          padding: 0.5em 1em;
+          width: fit-content;
+      }
+
+      #home-menu ul.submenu>li{
+          width: 6em;
+          padding: 0.5em;
+      }
+
+      #home-menu ul.submenu>li:hover{
+          background-color: #6c767b;
+      }
+
+      #home-menu .submenu>li>a{
+          color: white;
+          text-decoration: none;
+      }
+
+      #home-menu .menu>li{
+          display: inline-block;
+          color: white;
+          padding: 1em;
+          font-size: 0.8em;
+          position: relative;
+      }
+
+      #home-menu .menu>li:hover .submenu{
+          display: block;
+      }
+
+
+
+
+
+        body{
+            margin: 0;
+        }
+
+        main{
+            min-height: 10vh;
+        }
+
+        footer {
+            background-color: #275175;
+            color: #fff;
+            margin: 4rem auto;
+            padding: 2rem 1rem;
+        }
+
+        footer>ul{
+            list-style: none;
+        }
+
+
+
+    </style>
+
+
+
+</head>
+<body>
+<h1>메뉴바 홈</h1>
+
+<nav id="home-menu">
+    <ul class="menu">
+        <li>자바수업
+            <ul class="submenu">
+                <li><a href="https://www.naver.com/"></a>기본문법</li>
+                <li><a href="https://www.naver.com/"></a>입출력</li>
+                <li><a href="https://www.naver.com/"></a>소켓통신</li>
+                <li><a href="https://www.naver.com/"></a>GUI</li>
+            </ul>
+        </li>
+        <li>프론트엔드수업
+<!--            ul.submenu>(li>a[href=#]{$$}*5-->
+            <ul class="submenu">
+                <li><a href="#">01</a></li>
+                <li><a href="#">02</a></li>
+                <li><a href="#">03</a></li>
+                <li><a href="#">04</a></li>
+                <li><a href="#">05</a></li>
+            </ul>
+        </li>
+        <li>빅데이터 수업
+            <ul class="submenu">
+                <li><a href="#">01</a></li>
+                <li><a href="#">02</a></li>
+                <li><a href="#">03</a></li>
+                <li><a href="#">04</a></li>
+                <li><a href="#">05</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+<main>
+    <h2>메뉴바 만들기 수업</h2>
+    <p>smu 에서 진행하는 엔지니어 양성 과정</p>
+</main>
+<footer>
+    <ul>
+        <li>회사명 : smu</li>
+        <li>대표 : 최경민</li>
+        <li>사업자등록번호:123-546</li>
+        <li>주소 : 가산동123-4번지</li>
+        <li>이메일</li>
+    </ul>
+</footer>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
