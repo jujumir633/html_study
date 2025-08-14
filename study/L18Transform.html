@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>트랜스폼 요소를 변경하자</title>
+    <style>
+        .container {
+            border: 1px solid;
+        }
+        .container>.box{
+            width: 5em;
+            height: 5em;
+            display: inline-block;
+            background-color: hotpink;
+            border: 1px solid #7d1d4e;
+            transition: transform 0.5s ease;
+        }
+        .ex1:active{
+            transform: translateY(10em) translateX(10em);
+
+        }
+        .ex2:active{
+            transform: rotate(180deg);
+        }
+        .ex3:active{
+            transform: rotateX(180deg);
+        }
+        .ex4:active{
+            transform: rotatey(180deg);
+        }
+        .ex5:active{
+            transform: scale(0.1);
+        }
+        .ex6:active{
+            transform: scaleX(0.1);
+        }
+        .ex7:active{
+            transform: scaley(0.1);
+        }
+        .ex8:active{
+            transform: skew(30deg ,30deg);
+        }
+        .ex9:active{
+            transform: skewx(30deg);
+        }
+        .ex10:active{
+            transform: skewy(30deg);
+        }
+        .ex11:active{
+            transform: scaleY(0);
+
+        }
+        .ex11{
+            transform-origin: left top;
+        }
+        .ex12{
+            transform-origin: bottom right;
+        }
+
+        .ex13{
+            transform-origin: center left;
+        }
+
+        .ex11:active, .ex12:active, .ex13:active{
+            transform: scale(0);
+        }
+
+
+    </style>
+
+
+</head>
+
+<body>
+
+<h1>트랜스 폼으로 요소를 변경하자</h1>
+
+<h2>translate : 이동</h2>
+<div class="container">
+    <div class="box ex1"></div>
+</div>
+
+
+
+
+<h2>rotate : 회전</h2>
+<div class="container">
+    <div class="box ex2"></div>
+    <div class="box ex3"></div>
+    <div class="box ex4"></div>
+</div>
+
+
+<h2>scale : 크기</h2>
+<div class="container">
+    <div class="box ex5"></div>
+    <div class="box ex6"></div>
+    <div class="box ex7"></div>
+</div>
+
+
+
+<h2>skew : 비틀기</h2>
+<div class="container">
+    <div class="box ex8"></div>
+    <div class="box ex9"></div>
+    <div class="box ex10"></div>
+</div>
+
+
+
+<h2>transform-origin : 기준점이동</h2>
+<div class="container">
+    <div class="box ex11"></div>
+    <div class="box ex12"></div>
+    <div class="box ex13"></div>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
