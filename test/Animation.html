@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>애니메이션 과제</title>
+    <style>
+        .rainbow-box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border: 1px solid;
+            border-radius: 20px;
+            animation: rainbow 5s 5 linear;
+            animation-direction: alternate;
+        }
+
+        @keyframes rainbow {
+            0%{
+                background-color: red;
+            }
+            15%{background-color: orangered}
+            30%{background-color: yellow}
+            45%{background-color: green}
+            60%{background-color: blue; transform: scale(0.5);}
+            75%{background-color: #7d1d4e}
+            100%{background-color: purple}
+        }
+    </style>
+
+
+</head>
+
+<body>
+<h3> 과제1 무지개색 변환 박스</h3>
+<div class="rainbow-box">
+    <div></div>
+</div>
+
+<h2>타자기효과</h2>
+<div>
+    hello css animation
+</div>
+
+<h3>로딩 애니메이션</h3>
+<style>
+    .loading-dots>span{
+        width: 1em;
+        height: 1em;
+        display: inline-block;
+        background-color: darkgray;
+        border-radius: 50%;
+        animation: move-dot 0.5s infinite ease alternate;
+    }
+    @keyframes move-dot{
+        0%{
+            transform: translateY(0);
+            background-color: darkgray;
+        }
+
+        100%{
+            transform: translateY(-1em);
+            background-color: black;
+        }
+    }
+    .loading-dots>span:nth-child(2){
+        animation-delay: 0.2s;
+    }
+    .loading-dots>span:nth-child(3){
+        animation-delay: 0.4s;
+    }
+</style>
+<div class="loading-dots">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+</body>
+</html>

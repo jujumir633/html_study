@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>과제</title>
+
+    <style>
+        .container {
+            border: 1px solid #dddd;
+
+        }
+
+        .box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ddd;
+            transition: transform 1s ease;
+            backface-visibility: hidden;
+            height: 8em;
+            width: 5em;
+        }
+        .box:active{
+            transform: rotateY(100deg);
+        }
+        .back-box{
+
+        }
+        .box-wrap{
+        display: flex;
+
+        }
+
+
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="back-box">
+    <div class="box box:active">플립박스</div>
+    <div class="box back-box back-box:active">뒤집힌 박스</div>
+    </div>
+</div>
+
+<style>
+    .underline-nav{
+        display: flex;
+        list-style: none;
+        justify-content: space-between;
+
+    }
+    .underline-nav a{
+        text-decoration: none;
+        color: #616161;
+    }
+    .underline-nav li::after{
+        content: "";
+        height: .1em;
+        width: 100%;
+        transform: scaleX(0);
+        background: #000000;
+        display: block;
+        transition: transform 1s ease;
+    }
+    .underline-nav li:hover::after{
+        transform: scalex(1);
+    }
+</style>
+
+<div>
+    <ul class="underline-nav">
+        <li style="position: relative"><a href="">01홈</a></li>
+        <li style="position: relative"><a href="">02고객센터</a></li>
+        <li style="position: relative"><a href="">03주문</a></li>
+        <li style="position: relative"><a href="">04장바구니</a></li>
+    </ul>
+</div>
+
+<style>
+    .tip-wrap>.tip{
+        transform: scaleX(0);
+        opacity: 0;
+    }
+    .tip-wrap:hover .tip{
+        transform: scale(1);
+        opacity: 1;
+    }
+</style>
+
+
+<div class="tip-wrap">
+    <span>❤</span>
+    <span class="tip">툴팁팝!!</span>
+
+</div>
+
+
+
+
+</body>
+</html>
