@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>변수와 데이터</title>
+
+</head>
+
+<body>
+    <h1> 변수와 데이터</h1>
+
+
+    <script>
+        // F12 Console 에서 확인 가능
+        console.log("title") //style, on*, id, class...
+        // 필드가 존재하는 데이터는 자료형이다
+
+        // 거의 모든 언어 data=>기본형,자료형으로 구분
+        // 기본형 : 참조하는 데이터가 없는, 원시적인(010101 로 된)
+        // -.0101001(2) => 수(x) (자바에서는 기본형은 모두 수)
+        // 자료형 : 참조하는 데이터가 있는 (복잡한)
+
+        console.log(11) // 정수 integer int
+        console.log(11.0) //실수 double, float
+
+        //자바스크립트의 수는 정수 실수 구분이 없다
+        console.log(typeof 11);
+        console.log(typeof 11.1);
+        console.log(12314122222222312312123123123123123123);
+        // 1.2314122222222313e+37
+        // 1.2314122222222313 : 가수부
+        // e+37 : 지수부
+        // 실수의 특징 : 대략의 수를 표현, 지수부덕에 큰수를 표현가능
+
+        // BigInt : 정수를 배열처럼 표기(엄청긴 수를 표현가능, 끝에 n 붙임)
+        console.log(1231231231241434521312312n);
+        console.log(1231231231241434521312312n+1n);
+        // BigInt 끼리만 연산 가능
+        // 배열(Array) : []자료형
+        // 수로만 된 배열은 원시형처럼 보일수도 있다
+        console.log([11,2,31,4,5]);
+        console.log("문자열"); //유니코드 utf-8, utf-16(java)
+        console.log('문자열');
+        // "" '' : 문자열 데이터(자바스크립트는 문자 데이터가 없다)
+        // 자바 : 'a' 문자 "andf" 문자열
+        // 문자열과 인코딩
+        // A => 아스키코드(인코딩표 라벨링)의 65번
+        console.log("ABCDE"); //[65,66,67,68,69] => 인코딩과 매칭
+        //자바스크립트는 문자열을 기본형으로 사용
+
+        console.log(console) //자료형
+
+        //데이터 재사용하는 방법
+        //변수, 상수
+
+        let a=10; //10 데이터를 a 변수가 참조해서 재사용하겠다
+        // let 변수를 선언하는 명령어
+        // let a=20; 오류뜸(같은 이름의 변수는 2번 사용이 안됨)
+        let l=30;
+        // l은 30을 참조 => 30데이터를 l로 재사용
+        console.log(l);
+        console.log(l*2*3.14);
+        console.log(l*l);
+        l="안녕!!";
+        console.log(l);
+        console.log(l+"잘가~");
+        console.log(l*10); // NaN => not a number 숫자가 아님
+        //문자열을 + 연산만 가능
+
+        l=[10,21,31,41];
+        l.push(51);
+        l.push("61");
+        console.log(l);
+        //자료형 : 배열과 객체
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>

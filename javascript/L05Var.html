@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>오래된 변수(1995.5) var</title>
+
+</head>
+
+<body>
+    <h1>오래된 변수(1995.5) var</h1>
+    <ul>
+        <li>여러번 중복 선언 가능</li>
+        <li>var 로 선언된 변수는 전역에 미리 undefined로 생성
+            =>호이스팅현상
+        </li>
+        <li>var은 무조건 전역변수기 때문에 ✨지역구분이 없다.✨</li>
+    </ul>
+
+
+
+
+
+
+    <script>
+        //일반적인 개발자가 생각하는 변수와 상수의 동작원리와 같음
+        // var 이 유일한 변수 (상수없음)
+        // var a; 몰래생성
+        // var b; 몰래생성
+        // 실행컨텍스트 : script로 작성된 코드를 실행하기 전에 실행에 필요한 코드를 미리 메모리에 저장
+
+        var a=10;
+        console.log(a);
+        var a=20;
+        console.log(a);
+
+
+        let l=100;
+        // let l=100; 두번 선언 불가
+
+         console.log(b) //변수 생성 전에 선언 되었지만 있는것 처럼 됨
+         var b=30;
+
+        // console.log(m) : 변수 생성 전에 실행되어 오류 뜸
+        // let m=200;
+
+        let m=200;
+        /////////////
+        {
+            var b=1000;
+            let m=2000;
+        }
+        console.log(m);
+        console.log(b);//지역구분이 없다
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>

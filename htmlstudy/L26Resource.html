@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>리소스 참조를 배워보자</title>
+    <!--    외부 css 참조위치-->
+    <link rel="stylesheet" href="/src/bootstrap-5.3.7/dist/css/bootstrap.css">
+<!--    외부 css 참조위치-->
+    <link rel="stylesheet" href="/src/CSS/background.css">
+<!--    내부 css 위치-->
+    <style>
+
+    </style>
+
+
+</head>
+
+<body>
+<h1>리소스 참조를 배워보자</h1>
+<p>http://localhost:63342/html_study/study/L26Resource.html</p>
+<ul>
+    <li>http : 통신규약</li>
+    <li>내컴퓨터 내부(==127.0.0.1)</li>
+    <li>63342 :OS 반영한 웹서버의 고유번호 포트</li>
+    <li>html_study/study/L26Resource.html : 서버내의 리소스 주소</li>
+    <li></li>
+</ul>
+<p style="border: 1px solid black;">
+    <img  src="/src/img/dog.jpg">
+</p>
+
+<h2>상대 경로</h2>
+<ul>
+    <li>/path : 루트경로 => 리소스의 맨 상단</li>
+    <li></li>
+    <li></li>
+
+</ul>
+
+<h2>다른 문서(html)을 포함하는 iframe</h2>
+<h3> / : 루트 상대경로</h3>
+
+<iframe src="L01Hello.html"></iframe>
+<hr>
+
+<h3> ./ . ../ : 리소스 위치 기준 상대경로</h3>
+<iframe src="./L26Resource.html"></iframe>
+
+<h3>절대경로 : 통신규약 or 드라이버</h3>
+<iframe src="http://localhost:63342/html_study/L01Hello.html"></iframe>
+
+<h3>절대경로로 다른 사이트 참조</h3>
+<p>CORP Cross-origin Resource Policy => SOP : 같은 서버의 리소스만 참조가능</p>
+<iframe src="http://naver.com"></iframe>
+<hr>
+
+<iframe width="560" height="315"
+        src="https://www.youtube.com/embed/8fzsXbj5j20?si=a_BVHg7ilXX2EHXx"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+                gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

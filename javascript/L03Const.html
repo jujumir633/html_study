@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>변하지 않는 상수</title>
+
+</head>
+<body>
+<h1>변하지 않는 상수</h1>
+
+<script>
+    let a; //변수
+    var v; //변수 (더이상 사용되지 않음)
+    console.log(a)
+    a=10;
+    a=20;
+    a="안녕"
+    //바꿀수 있는 변수
+
+    //const c; 정의되지 않는
+    const c=10;
+    console.log(c);
+    //대입연산
+    a=a+"!!";
+    console.log(a);
+    a+="~~";
+    console.log(a);
+    // c+=1; 상수는 바꿀수 없다
+
+    //표기법
+    //numSum : 낙타표기법(메소드 이름, 변수명)
+    //NumSum : 파스칼표기법(대명사, class명)
+    //NUM_SUM : 스네이크문법(상수 표기법)
+    //num_sum : 파일, 폴더 이름 [잘안씀]
+    //num-sum : html 선택자 이름 [잘안씀] (js 사용금지)
+
+    const SUM=10;
+    const PI=3.14;
+    console.log(Math.PI); //Math(type), PI(상수)
+    console.log(Math.pow(2,10));
+    console.log(Math.floor(Math.random()*10)+1);
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
