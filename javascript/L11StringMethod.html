@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>문자열의 유용한 메서드</title>
+</head>
+<body>
+    <h1>문자열의 유용한 메서드</h1>
+
+    <script>
+        //검색 메소드
+        let str="경민 안녕!";
+        console.log(str[0],str[1],str[2]);
+        console.log(str.charAt(1));
+        console.log(str.charCodeAt(1)); //UTF-16 의 코드
+        console.log("A".charCodeAt(0));
+        console.log("a".charCodeAt(0));
+
+        str="abfcdefg";
+        console.log(str.indexOf("cd")); //해당열의 첫번재 자리
+        console.log(str.indexOf("c",0));
+        console.log(str.includes("cd"));
+        console.log(str.includes("gg"));
+        console.log(str.includes("c",3)); // 0,1,2이내에 있어?
+
+        console.log(str.indexOf("f"));  //1번째 f
+        console.log(str.lastIndexOf("f")); // 2번째 f 끝부터
+
+        //추출
+        //substring, slice, substr
+        console.log(str.substring(3,5));
+        console.log(str.substring(3));
+        console.log(str.slice(3,5));
+        console.log(str.slice(3));
+        console.log(str.slice(-3));
+        console.log(str.slice(-3,-1)); // 뒤에서 부터 자를수 있음
+
+        //변환!! =>바꾼 데이터를 반환
+        console.log(str.toUpperCase());
+        console.log(str); //문자열은 불변(기본형)이라 변형불가
+        str="HIJKL";
+        console.log(str.toLowerCase());
+        str=`     경민   `;
+        console.log(str.toUpperCase());
+        console.log(str);
+        console.log(str.trim()); // trim 여백제거
+
+        str="경민"; // 6자리  0000경민
+        console.log(str.padStart(3,'0'));
+        console.log(str.padEnd(6,'0'));
+
+        //결합, 분할
+        console.log(str+"  "+"안녕!");
+        console.log(`${str}님 안녕하세요~`)
+        console.log(str.concat("","안녕"));
+
+        str="010-1234-5678";
+        console.log(str.split("-")) // str 에 -기준으로 분할
+        console.log(str.split(""));
+
+        str="JS";
+        console.log(str.repeat(10)); //repeat = 반복
+
+        //교체 replace, replaceAll
+        str="책상 의자 모니터 의자";
+        console.log(str.replace("의자","키보드")); //교체, 중복시 1개만 바꿈
+        console.log(str) // 원본은 바뀌지 않음
+        console.log(str.replaceAll("의자","보드")) // 모두 다 바꿈
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

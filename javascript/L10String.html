@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>문자열데이터</title>
+</head>
+
+<body>
+    <h1>문자열데이터</h1>
+    <p id="userName"></p>
+
+    <script>
+        let str="안녕";
+        console.log(str);
+        str=`잘가`;
+        console.log(str);
+        str=`자바스크립트`;
+        console.log(str);
+
+        str=`안녕 경민`;
+        console.log(str);
+        let name="지형";
+        str=`<b>
+            ${name}
+        </b>`;
+
+        userName.innerHTML=str;
+        console.log("name",name);
+        console.log("name.length",name.length);
+        console.log("name[0]",name[0]);
+        console.log("name[1]",name[1]);
+
+        console.log("1+1",1+1);
+        console.log("1+`1`" , 1+`1`);
+        console.log("`1`+`1`",`1`+`1`);
+        console.log(11*11);
+
+        // +를 제외한 수학적 연산은 모두 수로 형변환
+        console.log("11"*"11");
+        console.log("11"/"11");
+        console.log("11"%"11");
+        console.log("11"**"11");
+
+        let a="11";
+        console.log(++a);
+
+        //비교연산
+        console.log(11==11);
+        console.log(11=="11");
+        console.log(11>"10");
+        console.log(11>"20");
+        console.log("11"<"20");
+
+        //수로 형변환 되지 않는 문자열간의 크기비교
+
+        console.log("a"<"b");
+        console.log("azzz"<"bzzz"); //문자열 비교는 맨앞의 인코딩 번호를 비교
+
+        console.log(97<98);
+        //js!!!!! 유연한 문법!!!  java는 규칙
+
+        //하나는 수이고 하나는 문자열인데 수로 형변환되지 않는것
+        console.log(11<"20");
+        console.log(11<"안녕"); // 11<Number("안녕")
+        console.log(Number("안녕")); // "안녕" = NaN
+        // NaN 의 비교는 항상 false
+
+        // Number.isNaN() : 문자열을 형변환 후 확인
+        // isNaN() : 문자열이 Number가 될수 있는지 확인
+        console.log(isNaN("경민"));
+        console.log(isNaN("11"));
+
+        console.log(Number.isNaN("경민"));
+        console.log(Number.isNaN(+"경민"));
+        console.log(Number.isNaN(NaN));
+
+        // 문자열을 수로 형변환 하는 함수
+        // Number
+        a="12.3";
+        console.log("Number(a)",Number(a)); // 문자열 전체를 숫자로 변환 , 실패시 NaN
+        console.log("Number.parseInt(a)",Number.parseInt(a)); //parseInt 소수점을 없애 정수로
+        console.log("Number.parseFloat(a)",Number.parseFloat(a));
+
+
+    </script>
+
+    <p>
+        <label for="userAge">나이</label>
+        <input type="text" id="userAge">
+    </p>
+
+    <p>유저는 <b id="agePrint"></b>입니다</p>
+
+    <script>
+
+        userAge.onchange=function (){
+            console.log(isNaN(userAge.value));
+            console.log(Math.trunc((userAge.value)/10));
+        }
+
+    </script>
+
+</body>
+</html>

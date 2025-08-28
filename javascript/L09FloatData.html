@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>실수 데이터가 저장되는 방식</title>
+
+</head>
+
+<body>
+    <h1>실수 데이터가 저장되는 방식</h1>
+    <script>
+        let a=10;
+        //10=>2진수로 변환 후 저장
+        // 2의3승 + 2의1승
+        // 1010(2)
+        console.log(Number(10).toString(2));
+        console.log(Number(10).toString(16));
+        console.log(Number(15).toString(16));
+        console.log(Number(16).toString(16));
+        console.log(Number(10.0).toString(2));
+
+
+        a=10.0;
+        //10.0 => 2진수로 변환 후 지수표기법으로 변환 후 지수부와 가수부로 저장
+        // java : float(4바이트), double(8바이트)
+        // js   : java double과 같다
+        // 지수부 11개, 가수부52개
+
+        a=-10;
+        console.log(a,a.toString(2));
+        //기본형을 변수가 참조하고 있다가 랩퍼클래스의 함수를 참조
+        //자동으로 자료형으로 형변환
+        //실수는 0, -0 이 존재함
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>
