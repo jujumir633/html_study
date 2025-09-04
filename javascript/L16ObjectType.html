@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Object 의 타입 생성</title>
+</head>
+<body>
+    <h1>Object 의 타입 생성</h1>
+    <script>
+        let obj={a:200, c:300};
+        console.log(obj)
+        obj=new Object();
+        //객체의 타입 Object
+        //타입 : 객체의 설계도
+        obj.a=100;
+        console.log(obj);
+
+        let user={name:"가은",age:19};
+        let user1={name:"다희",age:20};
+        let user2={name:"지혜",age:21};
+        let user3={name:"혜지",age:22};
+        //유저를 만들건데 모든 유저는 이름과 나이가 있을때
+        //매번 새롭게 정의하는 이유는 타입이 없기 때문
+        //타입 : 생성을 재사용
+
+        function User(n,a){
+            this.name=n;
+            this.age=a;
+        }
+        function a(){} //타입 사용위치 표시
+        console.log(a);
+        console.log(User.prototype);
+        user=new User("지형",30);
+        console.log(user);
+        console.log(new User("범준",24))
+
+        //많은 개발자는 객체지향언어에 익숙
+        //함수가 => type
+
+        class Customer{
+            name="";num=0;phone="00-11-22";
+            //클래스 안에는 let, this 못씀
+            constructor(a,b,c){
+                //name=a; 모씀
+                this.name=a;
+                this.num=b;
+                this.phone=c;
+                this.ismarried=false; //없는 필드 생성시 자동 생성됨
+            }
+        }
+
+        console.log(new Customer());
+        console.log(new Customer("현태",707,"02"))
+
+
+        function Userz(name,gg) {
+            this.name = song;
+            this.gg = gg;
+        }
+
+        let song = "영영"
+
+        let kk = new Userz("경민", "39");
+        console.log(kk);
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>

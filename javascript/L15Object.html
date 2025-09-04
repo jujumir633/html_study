@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Object 객체 생성 및 사용 법</title>
+</head>
+<body>
+    <h1>Object 객체 생성 및 사용 법</h1>
+    <script>
+        //자료형 : 필드가 존재하는 것
+        //배열 : index가 존재 하는 것
+        //Array : index+필드(splice, slice...등) 존재
+        //index : 순서로 데이터 참조
+        //필드 : 이름은 데이터를 참조
+        //string 기본형 문자열 : 문자의 index, 필드(x)
+
+        const arr=[10,20,30]; //배열
+        const obj={name:"경민", age:39, ismarried:true, Data:"안녕!"}; //object
+        console.log(obj.Data);
+        obj.a=100; //필드생성
+        obj.song="잘생긴" // 필드생성
+        console.log(obj)
+        //obj={}; 상수는 다른 데이터를 참조하는 것을 막는것
+
+        //함수
+        function sum(a,b){
+            return a+b;
+        }
+
+        const mult=function (a,b){return a*b};
+        const mult2=(a,b)=>{return a*b};
+
+        obj.func=(a)=>{
+            console.log("안녕");
+            console.log("func 함수입니다"+a);
+        }
+
+        obj.func("js수업");
+
+        const o={a:10,
+                b:()=>{return 20},
+                c:()=>30,
+                d:function(){return 40},
+        };
+
+        console.log(o.a);
+        console.log(o.b());
+        console.log(o.c());
+        console.log(o.d());
+
+        let ins={};
+        ins= new Object();
+        console.log(ins)
+        ins.a=20;
+        ins.b=(a,b)=>a*b;
+        console.log(ins);
+        //객체인데 배열인척
+        ins={0:10, 1:20, 2:30, length:3};
+
+        console.log(ins[0]);
+
+        console.log(Array.from(ins));
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>

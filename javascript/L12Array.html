@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>순서와 길이가 있는 자료형 배열 Array</title>
+</head>
+<body>
+    <h1 id="title">순서와 길이가 있는 자료형 배열 Array</h1>
+    <ul id="numList">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+
+    <script>
+        console.log(title.id)
+
+        let str="안녕하세요~";
+        console.log(str[2])
+        const arr=[10,20,30];
+        console.log(arr[1]);
+        console.log(arr[2]);
+        console.log(arr.length);
+        console.log(arr["length"]);
+
+        // Array : 자료형 타입
+        // 객체생성 법 : new 연산자로 타입에 정의된 생성자
+
+        let nums=new Array(5); //배열에 하나만 쓰면 비어있는 갯수를 나타냄
+        console.log(nums);
+        // empty 는 null 도 아니고 undefined 도 아닌 상태
+        console.log(nums[0]);
+
+        nums=new Array(10,20,30);
+        console.log(nums);
+        console.log(nums[3]);
+
+        nums=Array.of(40,50,60)
+        console.log(nums);
+        nums.push(70);
+        console.log(nums);
+        nums[4]=80;
+        console.log(nums);
+        nums[10]=100;
+        console.log(nums);
+
+
+        // Array.from
+
+        str="123456789"; //[`1`,`2`,`3`,.....`9`]
+        nums=Array.from(str);
+        console.log(nums);
+        console.log(str.split(''))
+
+        //브라우저가 생성한 노드를 탐색했을때 반환되는 배열 타입
+        //Array
+        //HTMLCollections
+        //LodeList
+
+        // document : 문서객체
+
+        let lis=document.getElementsByTagName("li");
+        console.log(lis);
+        console.log(Array.from(lis));
+        lis=document.querySelectorAll("#numList>li");
+        console.log(lis);
+
+        //최신문법 스프레드문법 ...
+
+        nums=[1,2,3];
+        let nums2=[...nums];
+        console.log(nums2);
+        nums2=[...lis];
+        console.log(nums2);
+        nums2=[...nums,4,5,6];
+        console.log(nums2);
+        const[a,b]=[10,11];
+        console.log(a,b);
+        const[c,...d]=[12,13,14,15];
+        console.log(c,d);
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>

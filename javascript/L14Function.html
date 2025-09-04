@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>연산을 재사용하는 함수</title>
+</head>
+
+<body>
+    <h1>연산을 재사용하는 함수</h1>
+
+    <script>
+        console.log("13.3")
+        console.log(Number.parseFloat("13.3"));
+
+        sum(10,20);
+        function sum(a,b) {
+            console.log("sum()입니다.!!");
+            console.log("a+b =",a+b,"입니다");
+        }
+
+        let a=10;
+        console.log(a);
+
+        //이름이 없는 함수(익명함수)는 호이스팅 대상이 아님
+        //익명함수를 변수나 상수가 참조해서 호이스팅을 피함
+        const mult=function(a,b,c){
+            console.log(a*b*c+" "+"입니다");
+        }
+        mult(10,20,30);
+
+        const aFunc=()=>{
+            console.log("a()함수입니다")
+        }
+
+        aFunc();
+
+
+    </script>
+
+
+</body>
+</html>
