@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>프로토타입의 상속</title>
+</head>
+<body>
+    <h1>프로토타입의 상속</h1>
+    <p>객체를 상속(권장), 프로토타입의 상속(고급 개발자)</p>
+
+    <script>
+        let a={score:87,a:()=>{
+                console.log("a입니다")}}
+        let b={grade:"B+", b:()=>{
+                console.log("B입니다")}}
+
+
+        a.__proto__=b;
+        console.log(a.score,a.grade);
+        console.log(a);
+        a.a();
+        a.b();
+
+        function User(){
+            this.name="경민";
+            this.say=()=>{
+                console.log(this.name+"이 안녕");
+            }
+        }
+        // 객체.필드 : data
+        // 객체.함수 : 현재는 data가 아닌데 호출될때 data로 생성
+        // 함수를 프로토타입에 명시 => 함수상속은 가능
+
+        User.prototype.protosay=function (){
+            console.log(this.name+"이 프로토안녕!!")
+        }
+
+        function Customer(){
+            this.id="1234"
+        }
+
+        let user= new User();
+        console.log(user);
+        user.say();
+        user.protosay();
+
+        console.log(User.prototype,Customer.prototype);
+        Customer.prototype.__proto__=User.prototype;
+
+        let customer=new Customer();
+        console.log(customer.name);
+
+        // class 문법
+        // 자동으로 함수는 prototype에 명시됨 상속시 자동으로 함수가 상속됨
+        // prototype에 필드 명시하고 상속하는 것은 권장하지 않기 때문
+        // 부모 필드를 자식과 결합
+        class Animal{
+            name="동물";
+            info(){
+                console.log("info 입니다")
+            }
+        }
+
+        class Dog extends Animal{
+            tail="꼬리";
+            move(){
+                console.log("move 입니다");
+            }
+        }
+        // extends 와 동일함 Dog.prototype.__proto__=Animal.prototype;
+        //  a.__proto__=b;
+        console.log(Animal.prototype);
+
+        let dog=new Dog();
+        console.log(dog);
+        dog.move();
+        dog.info();
+        //dog 객체가 Dog.prototype을 상속함
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>
