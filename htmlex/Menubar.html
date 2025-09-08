@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>메뉴바</title>
+
+    <style>
+        .ulbox{
+            background-color: #efe7e7;
+            border-radius: 30px;
+            text-align: center;
+        }
+
+        .blocks{
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 15%;
+            height: 30px;
+            position: relative;
+
+
+        }
+
+        .submenu{
+            display: none;
+            list-style: none;
+            position: absolute;
+            top: 30px;
+            left: 15px;
+            text-align: center;
+
+        }
+
+        .blocks:hover .submenu{
+            display: block;
+        }
+
+        .textfont{
+            font-size: 13px;
+            font-family: "Trebuchet MS", Arial, sans-serif;
+            border: #da9d9d solid 0.1px;
+            box-shadow: 2px 1px 2px #7f7fb9;
+            border-radius: 30px;
+            color: #da9d9d;
+
+
+        }
+
+        .img{
+            display: inline-flex;
+            width: 23%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 20px;
+
+        }
+
+        .img2{
+            display: inline-flex;
+            width: 60%;
+            height: 60%;
+            object-fit: cover;
+            border-radius: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+<p>
+    <img class="img" src="/src/img/태국지도.jpg" alt="">
+    <img class="img" src="/src/img/치앙마이.jpg" alt="">
+    <img class="img" src="/src/img/베트남.jpg" alt="">
+    <img class="img" src="/src/img/대만.jpg" alt="">
+</p>
+<hr>
+<nav >
+    <ul class="ulbox">
+        <li class="blocks textfont">태국
+            <ul class="submenu">
+                <li>
+                    <a class="img2" href="#" onclick="changeImage('/src/img/태국육.jpg'); return false;">클릭</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="blocks textfont">베트남
+            <ul class="submenu">
+                <li>
+                    <a class="img2" href="#" onclick="changeImage('/src/img/베트육.jpg'); return false;">클릭</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="blocks textfont">대만
+            <ul class="submenu">
+                <li>
+                    <a class="img2" href="#" onclick="changeImage('/src/img/대만육.jpg'); return false;">클릭</a>
+                </li>
+            </ul>
+
+        </li>
+
+        <li class="blocks textfont">말레이시아
+            <ul class="submenu">
+                <li>
+                    <a class="img2" href="#" onclick="changeImage('/src/img/말레육.jpg'); return false;">클릭</a>
+                </li>
+
+            </ul>
+
+        </li>
+
+    </ul>
+
+</nav>
+<br><br>
+<h2 style="text-align: center">육빡이~</h2>
+<div>
+    <div class="wind" style="text-align: center">
+        <img id="heroImage" class="img2" src="/src/img/오여1.jpg">
+    </div>
+
+</div>
+
+
+<script>
+    function changeImage(newSrc){
+        var img = document.getElementById('heroImage');
+        if (img) {
+            let originalSrc = img.src;
+            img.src = newSrc;
+
+
+            setTimeout(function(){
+                img.src = "/src/img/오여1.jpg";
+            }, 5000);
+        }
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
