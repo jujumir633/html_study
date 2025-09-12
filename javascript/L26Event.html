@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JS event</title>
+
+    <style>
+        .box{
+            width: 5em;
+            height: 5em;
+            border: 1px solid #000;
+            background: lightblue;
+            transition: all 1s ease-in-out;
+        }
+        .selected {
+            border: 3px solid red;
+            background: yellow;
+            width: 6em;
+            height: 6em;
+            transition: all 0.5s ease-in-out;
+            transform: rotateY(-180deg);
+        }
+
+    </style>
+
+
+</head>
+<body>
+    <h1>자바스크립트 이벤트로 요소에서 발생하는 이벤트를 재정의 하자</h1>
+
+    <div id="ex1">
+        <div class="box"></div>
+    </div>
+
+    <script>
+        let box=document.querySelector("#ex1>.box");
+        box.onclick=function (){
+            this.innerText="click";
+            this.style.backgroundColor="red";
+        }
+
+        box.onclick=function (){
+            this.style.borderWidth="1em";
+        }
+    </script>
+
+    <hr>
+    <div id="ex2">
+        <div class="box"></div>
+    </div>
+    <script>
+        box=document.querySelector("#ex2>.box");
+        box.addEventListener("click",function (){
+            this.innerText="클릭";
+            this.style.backgroundColor="purple";
+        });   // a
+        box.addEventListener("click",function (){
+            this.style.borderWidth="1em";
+        });   // b
+    </script>
+    <hr>
+
+    <div id="ex3" style="display: flex">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+    <script>
+        let boxs=document.querySelectorAll("#ex3>.box");
+        const boxsClick=function (){
+            this.style.borderColor="red";
+            this.style.borderWidth="1em";
+            return 0;
+        };
+
+        //배열의 모든 노드를(index) 찾아서 onclick 정의 : 안됨!!!!
+
+        boxs[0].onclick=function (){
+            alert("안녕");
+        }
+
+        for(let b of boxs){
+            b.addEventListener("click",boxsClick)
+        }
+    </script>
+
+    <hr>
+
+    <div style="display:flex" id="ex4">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+    <script>
+        boxs=ex4.children;
+        for(let b of boxs){
+            b.addEventListener("click",function (){
+                let borderWidth=window.getComputedStyle(this).borderWidth;
+                console.log(borderWidth);
+                if(borderWidth==="1px"){
+                    this.style.borderWidth="1em";
+                }else{
+                    this.style.borderWidth="1px";
+                }
+
+            })
+        }
+    </script>
+
+    <hr>
+
+    <div style="display:flex" id="ex5">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+    <script>
+        boxs=ex5.children;
+        const selectedHandler=function (){
+            this.classList.toggle("selected");
+        }
+
+        for (let b of boxs) {
+            b.addEventListener("click", selectedHandler);
+        }
+    </script>
+
+</body>
+</html>

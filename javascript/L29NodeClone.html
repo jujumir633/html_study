@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>노드 생성 및 클론</title>
+</head>
+<body>
+    <h1>노드 생성 및 클론</h1>
+    <form action="signup.jsp" name="signupForm">
+        <p><label>아이디 <input type="text" name="userId" value="develckm"></label></p>
+        <p><label>비밀번호 <input type="password" name="userPw" value="1234"></label></p>
+        <p>
+            <button type="reset">초기화</button>
+            <button type="submit">제출</button>
+        </p>
+
+    </form>
+
+    <script>
+        const signupForm=document.forms["signupForm"];
+        signupForm.addEventListener('submit',(e)=>{
+            e.preventDefault();
+            if(signupForm.userPw.value.length>7){
+                signupForm.submit();
+            }else{
+                alert("비밀번호는 8자리 이상")
+            }
+        });
+    </script>
+
+
+    <hr>
+    <h2>일정관리 어플</h2>
+
+
+
+
+    <ul id="scheduleUl">
+        <li data-time="480"><span>8:00</span> <b>기상</b></li>
+        <li data-time="790"><span>13:10</span> <b>점심</b></li>
+        <li data-time="1110"><span>18:30</span> <b>퇴근</b></li>
+    </ul>
+    <hr>
+    <form action="#" name="schedule">
+        <p>
+            <input type="time" value="09:00" name="time">
+            <input type="text" value="출근" name="str">
+            <button>제출</button>
+        </p>
+
+    </form>
+
+    <script>
+        const scheduleUl=document.querySelector("#scheduleUl");
+        const schedule=document.forms['schedule'];
+        const htmlAppend=(e)=>{
+            e.preventDefault();
+            let time=schedule.time.value;
+            let str=schedule.str.value;
+            console.log(time,str);
+            let html=`<li>${time}<span></span> <b>${str}</b></li>`;
+            scheduleUl.insertAdjacentHTML('beforeend',html);
+        }
+
+        const scheduleLiEx=document.querySelector("#scheduleUl");
+
+        const cloneAppend=(e)=>{
+            e.preventDefault();
+            let time=schedule.time.value;
+            let str=schedule.str.value;
+            let t=scheduleLiEx.querySelector(".t");
+            let s=scheduleLiEx.querySelector(".s");
+            t.append(time);
+            s.append(str);
+            scheduleUl.append(scheduleLiEx);
+
+        }
+
+
+        schedule.onsubmit=cloneAppend;
+    </script>
+
+</body>
+</html>

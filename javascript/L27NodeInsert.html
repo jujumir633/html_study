@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Node를 수정 삭제</title>
+</head>
+<body>
+
+    <h1>Node를 수정 삭제</h1>
+
+    <li id="moveli">무브</li>
+
+    <ul id="parent">
+        <li>01</li>
+        <li id="target">02</li>
+        <li>03</li>
+    </ul>
+
+    <p>
+        <button id="appendbtn">parent.append(moveli)</button>
+        <button id="prependbtn">parent.prepend(moveli)</button>
+
+    </p>
+
+    <script>
+        const parent = document.querySelector("#parent");
+        appendbtn.addEventListener("click", (e) => {
+            parent.append(moveli)
+        });
+
+        const parent1 = document.querySelector("#parent");
+        prependbtn.addEventListener("click", (e) => {
+            parent.prepend(moveli)
+        });
+
+    </script>
+
+</body>
+</html>

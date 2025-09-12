@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>비동기 함수</title>
+
+</head>
+<body>
+    <script>
+        let n=0;
+        for(let i=0; i<1000; i++){
+            n+=i+"";
+        }
+        console.log(n);
+
+
+    </script>
+
+
+
+
+   <h1>비동기 함수에 대해 알아보자</h1>
+    <script>
+        //멀티스레드 > 이벤트루프
+        let a=0;
+        console.log(++a);
+        //두 코드가 서로 동기화 되어 있기 때문에 a를 증가 시킬수 있다
+
+        //setTimeout(()=>{},밀리초 이후 실행)
+        setTimeout(()=>{
+            a=100;
+            console.log(a);
+        },1000)
+        console.log(a);
+    </script>
+
+   <hr>
+
+    <p id="time"></p>
+
+   <script>
+       setInterval(()=>{
+           time.innerText=new Date();
+       },1000);
+   </script>
+</body>
+</html>
