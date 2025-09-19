@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON</title>
+</head>
+<body>
+    <h1>JSON</h1>
+
+    <script>
+        let list=[];
+        list=new Array(1,2,3);
+        list=Array.of(1,2,3);
+        console.log(list);
+        // Object 자료형(참조형,인스턴스)
+        let obj={a:10,b:20};
+        // 객체를 리터럴 하게 표기
+        // 객체의 리터럴 표기법을 통신에 사용하도록 문자열로 변경 => JSON
+        let json='{"a":10,"b":true,"c":"경민"}';//객체선언이 아님x =>통신데이터 선언
+        // 자바,파이썬,c,c++,c# 어떤 언어든 객체가 있고 기본형으로 수,논리,문자열
+        obj=JSON.parse(json);
+        console.log(obj);
+        ++obj.a;
+        obj.c+="아!";
+        obj.b=!obj.b;
+        console.log(obj);
+
+        //let user={name:"두지형",age:20,ismarried:false};
+        let user= new Object();
+        user.name="두지형"; //ok
+        user.age=22; //ok
+        user.ismarried=false; // ok
+        user.score=NaN;  // null로 표시 ok
+        user.city=undefined; //쓸수없음
+        user.country=null; // null ok
+
+        user.say=()=>{    //함수 x
+
+            console.log("안녕");
+        }
+        user.children=[1,2,3] //배열ok
+
+        console.log(user);
+
+
+        let userStr=JSON.stringify(user);
+        console.log(userStr);
+
+
+
+
+    </script>
+
+</body>
+</html>

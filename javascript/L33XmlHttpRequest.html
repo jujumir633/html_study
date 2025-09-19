@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax XMLHttpRequest</title>
+</head>
+<body>
+
+    <h1>ajax XMLHttpRequest</h1>
+    <hr>
+    <h2>유저 정보 AJAX로 불러오기</h2>
+    <button id="loadUsersBtn">로드</button>
+
+    <table id="users" border="1">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>score</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        const usersbody=document.querySelector("#users>tbody");
+        const loadUsersBtn=document.querySelector("#loadUsersBtn");
+
+        const loadUsers=()=>{
+
+                let url="./L33Users.json"     //   (./ 폴더맨마지막), (../ 폴더 마지막 전), ( / 최상단(root) 폴더 뒤)
+                const request = new XMLHttpRequest();
+                request.open("GET",url);
+                request.send();
+                request.onload=function(){
+                    //데이터 통신이 완료되는 시점에 동작하는 콜백함수 재정의
+                    let status=request.status;
+                    if(status===200){
+                        console.log(request.responseText);
+                        const users=JSON.parse(request.responseText);
+                        console.log(users);
+
+                        let html="";
+                        for(let user of users){
+                            html+=`<tr>
+                                    <td>${user.id}</td>
+                                    <td>${user.name}</td>
+                                    <td>${user.score}</td>
+                               </tr>
+                        `
+                        }
+                        console.log(html);
+                        usersbody.innerHTML=html;
+                    }
+
+                }
+
+
+                // let json=request.responseText;
+                // //response : 요청한 내역을 서버가 전달한것(resource)
+                // console.log(json);
+                //
+                // setTimeout(()=>{
+                //     console.log(request.responseText);
+                // },1000)
+                // 비동기 함수가 통신이 완료되는 시점을 제공해야함
+                // onload , onreadystatechange
+
+        }
+
+        loadUsersBtn.addEventListener("click",loadUsers);
+
+    </script>
+
+
+
+
+</body>
+</html>

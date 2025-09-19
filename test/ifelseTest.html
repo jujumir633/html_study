@@ -3,80 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>테스트 페이지</title>
-    <style>
 
-        .item { border:1px solid #ccc; padding:8px; margin:6px 0; border-radius:8px; }
-        .meta { font-size:12px; color:#666; }
-    </style>
 </head>
 
 
 <body>
+    <h1>내부 반복문의 다양한 종류 Map, Filter, Reduce</h1>
 
-<section>
-    <h1>일정관리</h1>
-<form id="shForm">
-    <input name="sch" type="text" placeholder="일정">
-    <input name="time" type="datetime-local">
-    <input name="place" type="text" placeholder="장소">
+    <script>
+        let c=10;
 
-    <p>
-        <button name="addAppend">마지막줄 추가</button>
-        <button name="addPrepend">첫줄 추가</button>
-    </p>
 
-</form>
-</section>
-<hr>
+        async function cIncrement(){
+            await setTimeoutPromise(()=>{c+=10},1000);
 
-<section id="scheduleList">
-    <div class="item">
-        <div>
-            <strong>팀 회의</strong>
-            <span class="badge">기준(anchor)</span>
-            <div class="meta">2025-09-10 10:00 · 회의실 A</div>
-        </div>
-        <button class="btnRemove">삭제</button>
-    </div>
-
-</section>
-
-<script>
-    const form=document.querySelector("#shForm");
-    const schList=document.querySelector("#scheduleList");
-
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        let sch=form.sch.value;
-        let time=form.time.value;
-        let place=form.place.value;
-
-        let html=`
-        <div class="item">
-            <div>
-                <strong>${sch}</strong>
-                <div class="meta">${time} · ${place}</div>
-            </div>
-            <button class="btnRemove" onclick="this.closest('.item').remove()">삭제</button>
-        </div>
-
-        `
-        if(!(sch && time && place)){
-            alert("넣어");
-
-        }else{
-            schList.insertAdjacentHTML("beforeend",html);
+            console.log(c);
         }
-
-    });
-    // schList.addEventListener("click", (e) => {
-    //     if(e.target.classList.contains("btnRemove")){
-    //         e.target.closest(".item").remove();
-    //     }
-    // });
+        cIncrement();
 
 
-</script>
+
+    </script>
+
+
+
 
 
 
