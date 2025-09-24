@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>예외를 알고 처리하자</title>
+</head>
+<body>
+    <h1>예외를 알고 처리하자</h1>
+
+    <script>
+        //코드를 잘못 쓰는 것은 예외가 아니다 => 오류
+        let a=10;
+        // let a=20;
+        console.log("안녕");
+        /*
+        * int a=10;
+        * int a=10;
+        * =>컴파일 오류
+        * 오류가 있는 코드를 배포하는 것을 방지
+        * 실행도중 발생하는 오류 => 예외
+
+        */
+
+        // fetch("https://naver.com")
+        let n=10;
+        try{
+            console.log(n.toUpperCase());
+        }catch(e){
+            console.log(e);
+        }
+
+        console.log("안녕2");
+
+        try {
+            let arr = new Array(-3);
+            console.log(arr);
+        }catch (e){
+            console.log(e.message);
+        }
+
+        // NaN,
+
+        console.log("십삼"*3);
+        // 예외 => NaN
+
+        let arr=[1,2,3];
+        console.log(arr[2]);
+        console.log(arr[4]);  //자바에서는 오류 이지만 스크립트에서는 undefined
+
+        console.log(1/0); // 수학적 오류
+
+        //JSON은 조금만 잘못되도 다 깨짐
+        let text='{"a":10';  //괄호 오류 예외처리
+        //문자열로 객체를 표현
+        try {
+            console.log(JSON.parse(text));
+        }catch(e){
+            console.log(e.message);
+        }
+        console.log("멈췄나요?")
+
+
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise 객체에서 예외 위임</title>
+
+</head>
+<body>
+    <h1>Promise 객체에서 예외 위</h1>
+    <script>
+
+        let a=10;
+        let b="이십";
+        new Promise((resolve, reject) => {
+            let sum=(+a)+(+b); // NaN 가 아니면 resolve, NaN면 reject
+            if(Number.isNaN(sum)){ // a나 b 둘중하나가 NaN
+                //reject("a나 b 둘중하나가 NaN")
+                throw new Error("둘중하나가 NaN")
+            }else {
+                resolve(sum);
+            }
+        }).then((sum)=>{
+            console.log("a+b="+sum);
+        }).catch((err)=>{
+            console.log("catch"+err.message);
+        })
+
+        // async 함수에서 promise 의 예외처리
+
+        const run=async(n1,n2)=>{
+            let result=await new Promise((resolve, reject)=>{
+                let sum=(+n1)+(+n2);
+                if(Number.isNaN(sum)){
+                    reject("NaN있음");
+                }else{
+                    resolve(sum);
+                }
+            });
+            console.log("run.result",result);
+        };
+        run(10,20);
+
+
+
+
+    </script>
+
+
+</body>
+</html>

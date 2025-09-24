@@ -11,15 +11,13 @@
     <h1>내부 반복문의 다양한 종류 Map, Filter, Reduce</h1>
 
     <script>
-        let c=10;
-
-
-        async function cIncrement(){
-            await setTimeoutPromise(()=>{c+=10},1000);
-
-            console.log(c);
-        }
-        cIncrement();
+        const gg=new Promise((resolve, reject) => {
+            const succes=true;
+            if(succes){
+                resolve('찾업');
+            }else{reject('실패')}
+        })
+        console.log(gg)
 
 
 

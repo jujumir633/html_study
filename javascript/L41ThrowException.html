@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>예외 위임(발생) throw 를 사용하자</title>
+</head>
+<body>
+
+    <h1>예외 위임(발생) throw 를 사용하자</h1>
+    <script>
+        // 예외 위임의 목적 => try catch로 처리하라!!
+        //throw Error("강제오류발생")
+        //console.log("실행됨?")
+
+        const sum=(a,b)=>{
+            if(!isNaN(a)&&!isNaN(b)){
+                return (+a)+(+b);
+            }
+            throw new Error("매개변수는 숫자만 가능");
+            //return Number(a)+Number(b);  이것도됨 숫자만 오게~
+        }
+
+        console.log(sum(10,20));
+        console.log(sum("10",20));
+
+        try {
+            console.log(sum("십", 20));
+        }catch (e){
+            console.log(e)
+        }
+
+
+
+
+    </script>
+
+</body>
+</html>
