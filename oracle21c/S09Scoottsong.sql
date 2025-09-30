@@ -172,3 +172,93 @@ select JOB,ENAME,DEPTNO,HIREDATE from SCOTT.EMP where JOB='MANAGER';
 --9 보너스(comm)를 오름차순 정렬하되, NULL 값이 있는 경우 항상 마지막에 오도록 하라.
 --10 부서번호(deptno)를 내림차순으로 정렬하고, 같은 부서 내에서는 직무(job)를 오름차순으로 정렬하라.
 
+-------------------S13문제---------------------------------
+-- EMP와 DEPT를 내부 조인하여 모든 사원의 이름(ENAME)과 소속 부서명(DNAME)을 조회하라.
+
+-- 모든 사원의 이름과 소속 부서를 출력하되, 소속이 없는 사원도 포함되도록 LEFT JOIN을 사용하라.
+    select e.ENAME, e.EMPNO, d.DNAME,d.LOC from EMP e left join DEPT d on e.DEPTNO=d.DEPTNO;
+-- 모든 부서명을 출력하되, 사원이 없는 부서도 포함되도록 RIGHT JOIN을 사용하라.
+    select d.DNAME,e.ENAME from EMP e full join DEPT d on e.DEPTNO=d.DEPTNO;
+
+-- EMP와 DEPT를 FULL OUTER JOIN하여 사원 또는 부서가 없어도 모두 조회하라.
+
+
+-- EMP 테이블에서 사원 이름과 같은 부서에 속한 다른 사원의 이름을 SELF JOIN으로 조회하라.
+    select e.empno, e.ename,e.deptno,d.empno,d.ename from emp e inner join emp d on e.DEPTNO=d.DEPTNO;
+
+-- EMP와 DEPT를 CROSS JOIN하여 모든 가능한 조합을 조회하라.
+-- EMPNO와 DEPTNO가 일치하는 데이터만 INNER JOIN으로 조회하고, DEPTNO 순으로 정렬하라.
+-- 사원의 이름, 부서명을 출력하되, 부서명이 없는 경우 "NO DEPT"로 표시하라. (LEFT JOIN + NVL/COALESCE 활용)
+-- EMP에서 ENAME, DEPT에서 DNAME을 INNER JOIN으로 조회하되, 부서명이 'SALES'인 사원만 출력하라.
+-- EMP 테이블에서 관리자를 표현하려고 SELF JOIN을 사용해 사원의 이름과 같은 부서의 다른 사원을 "관리자"로 표시하라.
+
+
+
+
+
+-- 문제 1. 사원 이름(ENAME)과 해당 사원의 부서 이름(DNAME)을 조회하시오.
+    select e.eNAME,d.DNAME from EMP e join dept d on e.DEPTNO=d.DEPTNO;
+
+-- 문제 2. 부서 위치(LOC)가 'DALLAS'인 사원의 이름과 직무(JOB)를 조회하시오.
+    select e.ENAME,e.job,d.loc from EMP e join DEPT d on e.DEPTNO=d.DEPTNO where d.loc = 'DALLAS';
+
+-- 문제 3. 급여(SAL)가 2000 이상인 사원의 이름과 부서 이름을 조회하시오.
+    select e.sal,e.ENAME,d.DNAME from EMP e join DEPT d on e.DEPTNO=d.DEPTNO where e.sal>=2000;
+
+-- 문제 4. 각 사원의 이름과 급여, 그리고 급여 등급(GRADE)을 함께 조회하시오.
+    select e.ENAME,e.sal,s.GRADE,s.LOSAL,s.HISAL from EMP e join SALGRADE s on e.sal between s.LOSAL and s.HISAL;
+    select *from SALGRADE;
+
+-- 문제 5. 'ACCOUNTING' 부서에 소속된 모든 사원의 이름과 입사일(HIREDATE)을 조회하시오.
+    select d.DNAME,e.ENAME,e.HIREDATE from EMP e join DEPT d on e.DEPTNO=d.DEPTNO where d.DNAME='ACCOUNTING';
+
+-- 문제 6. 관리자가 존재하는 사원의 이름과 해당 관리자의 이름을 조회하시오.
+    select *from EMP;
+    select *from DEPT;
+    select e.ENAME as 사원이름, d.ENAME as 관리자이름 from EMP e join emp d on e.MGR=d.EMPNO;
+
+-- 문제 7. 부서별로 사원이 한 명도 없는 부서의 부서 이름을 조회하시오.
+SELECT d.dname FROM dept d LEFT JOIN emp e ON d.deptno = e.deptno WHERE e.empno IS NULL;
+
+-- 문제 8. 'RESEARCH' 부서에 소속된 사원의 이름과 급여 등급을 조회하시오.
+
+
+-- 문제 9. 모든 사원의 이름과, 해당 사원이 속하지 않은 부서 이름까지 포함하여 출력하시오.
+-- 문제 10. 모든 사원의 이름과 부서 이름을 조회하되, 부서가 지정되지 않은 사원도 함께 출력하시오.
+
+-- -------------S14문제-서브쿼리--------------------------------
+--1 전체 평균 급여보다 많은 급여를 받는 사원들의 이름과 급여를 조회하라.
+    select ENAME,sal from EMP where sal>(select avg(sal) from EMP);
+
+--2 이름이 'KING'인 사원과 동일한 직무를 가진 사원을 조회하라.
+    select ENAME,JOB from EMP where job=(select JOB from EMP where ENAME='KING');
+
+--3 20번 부서에서 근무하는 사원과 동일한 급여를 받는 사원들의 이름과 급여를 조회하라.
+    select DEPTNO,ENAME,SAL from EMP where sal in (select DISTINCT SAL from EMP where DEPTNO=20);
+    select DEPTNO,ENAME,SAL from EMP where sal in (800,1100,3000,3000,2975);
+
+--4 30번 부서 사원 중 한 명이라도 급여가 더 낮은 사원들을 조회하라.
+    SELECT ename, sal FROM emp WHERE sal > ANY (SELECT sal FROM emp WHERE deptno = 30);
+    select ENAME,sal from EMP where sal> any(select sal from EMP where DEPTNO=30);
+
+--5 10번 부서 사원 전원보다 급여가 높은 사원을 조회하라.
+    select ENAME,sal from EMP where sal>all(select sal from EMP where DEPTNO=10);
+
+--6 20번 부서의 (직무, 급여) 조합과 같은 조건을 가진 사원들을 조회하라.
+
+
+--7 각 부서별 최고 급여를 받는 사원 정보를 조회하라.
+select *FROM emp WHERE (deptno, sal) IN (SELECT deptno, MAX(sal)FROM emp GROUP BY deptno);
+--8 자기 부서의 평균 급여보다 높은 급여를 받는 사원들의 이름, 부서번호, 급여를 조회하라.
+--9 사원이 존재하는 부서만 조회하라.
+    select DNAME from DEPT where DEPTNO in (select distinct EMP.DEPTNO from EMP);
+
+    select *from DEPT where exists(select *from EMP where emp.DEPTNO=DEPT.DEPTNO);
+
+--10 각 사원의 이름, 급여와 함께 해당 사원 부서의 평균 급여를 같이 출력하라.
+
+
+-----------------------------------------------------------------------------------------------------------------
+-- over: 집계를 따로 진행해서 기존 출력에 더한다
+select e.ENAME,e.sal,avg(e.sal) over ( partition by DEPTNO)as 부서별평균 from EMP e;
+
